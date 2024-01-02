@@ -279,5 +279,4 @@ public class SalarieAideADomicileService {
 
         salarieAideADomicileRepository.save(salarieAideADomicile);
     }
-
 }

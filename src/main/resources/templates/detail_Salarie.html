@@ -17,7 +17,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li><a href="http://localhost:8080/salaries?page=0&amp;size=10&amp;sortProperty=nom&amp;sortDirection=ASC" class="nav-link">Liste des salariés <span class="badge badge-primary">26</span></a></li>
+                <li><a href="http://localhost:8080/salaries?page=0&amp;size=10&amp;sortProperty=nom&amp;sortDirection=ASC" class="nav-link">Liste des salariés <span class="badge badge-primary" th:text="${nombreSalaries}">26</span></a></li>
             </ul>
 
             <form class="form-inline my-2 my-lg-0" role="search" action="http://localhost:8080/salaries" method="GET">
@@ -35,15 +35,15 @@
 
     <h2>Détail du salarié</h2>
     
-    <form id="saveForm" action="http://localhost:8080/salaries/aide/10" method="post" class="row">
+    <form id="saveForm" action="http://localhost:8080/salaries/aide/{id}" method="post" class="row">
 
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="form-control-label" for="id">ID</label>
-                <input type="text" value="10" class="form-control" name="id" id="id" disabled="true">
+                <input type="text" th:value = "${id}" value="10" class="form-control" name="id" id="id">
 
                 <label class="form-control-label" for="nom">Nom</label>
-                <input type="text" value="Jean Dupont" class="form-control" name="nom" id="nom">
+                <input type="text" th:value = "${salarie} != null ?: ${salarie.nom}" value="Jean Dupont" class="form-control" name="nom" id="nom">
 
                 <label class="form-control-label" for="nom">moisEnCours</label>
                 <input type="date" value="03/2023" class="form-control" name="moisEnCours"
